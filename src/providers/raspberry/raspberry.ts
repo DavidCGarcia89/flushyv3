@@ -18,12 +18,12 @@ export class RaspberryProvider {
 
   peticionRaspberry(ip, puerto, pin) {
     const es_numero = new RegExp("^[0-9]+$");
-    if (es_numero.test(puerto) && es_numero.test(pin)) {
-      const uri = 'http://' + ip +":"+puerto+"/raspberry?pin="+pin;
-      return this.http.get<RespuestaRaspberry>(uri);
+    if (es_numero.test(puerto)) {
+        const uri = 'http://' + ip +":"+puerto+"/raspberry?pin="+pin;
+        return this.http.get<RespuestaRaspberry>(uri);
     } else {
-      const uri = 'http://' + ip +"/raspberry?pin="+pin;
-      return this.http.get<RespuestaRaspberry>(uri);
+        const uri = 'http://' + ip +"/raspberry?pin="+pin;
+        return this.http.get<RespuestaRaspberry>(uri);
     }
   }
 
