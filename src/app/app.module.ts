@@ -22,6 +22,8 @@ import { EditarBotonPageModule } from '../pages/editar-boton/editar-boton.module
 import { NuevoBotonPageModule } from '../pages/nuevo-boton/nuevo-boton.module';
 import { TabsPageModule } from '../pages/tabs/tabs.module';
 import { RaspberryProvider } from '../providers/raspberry/raspberry';
+import { StatusBotonPageModule } from '../pages/status-boton/status-boton.module';
+import { PulsarBotonPageModule } from '../pages/pulsar-boton/pulsar-boton.module';
 
 const env = ENV;
 
@@ -52,7 +54,9 @@ export const firebaseConfig = {
     NuevoBotonPageModule,
     TabsPageModule,
     HttpClientModule,
-    EditarBotonPageModule
+    EditarBotonPageModule,
+    StatusBotonPageModule,
+    PulsarBotonPageModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [

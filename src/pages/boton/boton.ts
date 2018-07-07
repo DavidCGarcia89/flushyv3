@@ -4,6 +4,8 @@ import { Dispositivo } from '../../model';
 import { FirebaseDbProvider } from '../../providers/firebasedb/firebasedb';
 import { RaspberryProvider } from '../../providers/raspberry/raspberry';
 import { EditarBotonPage } from '../editar-boton/editar-boton';
+import { StatusBotonPage } from '../status-boton/status-boton';
+import { PulsarBotonPage } from '../pulsar-boton/pulsar-boton';
 
 /**
  * Generated class for the BotonPage page.
@@ -26,62 +28,56 @@ export class BotonPage {
   private ionViewDidLoad() {
     console.log('ionViewDidLoad BotonPage');
   }
+  private statusRaspberry() {
+    const loading = this.loadingCtrl.create({
+    });
+    loading.present();
+    this.activeRaspberry.checkStatusRaspberry(this.dispositivo.ip, this.dispositivo.puerto)
+    .subscribe((status) => {
+      console.log(status);
+      loading.dismiss();
+      this.navCtrl.push(StatusBotonPage, {dispositivo: this.dispositivo, statusR: status});
+    },(error) => {
+      const miAlerta = this.alerta.create({
+        title: "Error",
+        message: "No se pudo alcanzar el dispositivo.",
+        buttons: ["Ok"]
+      });
+      miAlerta.dismiss();
+    });
+  }
+  private pulsarBoton(tipo) {
+    this.navCtrl.push(PulsarBotonPage, {dispositivo: this.dispositivo, tipoPulsador: tipo});
+  }
   private editarBoton() {
     this.navCtrl.push(EditarBotonPage, {dispositivo: this.dispositivo});
   }
-  private pulsarBoton() {
+  private comprobarConexion() {
     const loading = this.loadingCtrl.create({
-      content: 'Please wait...'
+      content: 'Testeando conexión...'
     });
     loading.present();
-    setTimeout(() => {
-    }, 2000);
-    let titulo;
-    let mensaje;
-    this.activeRaspberry.peticionRaspberry(this.dispositivo.ip, this.dispositivo.puerto, this.dispositivo.pin)
-    .subscribe(
-      (data) => {
-        loading.dismiss();
-        switch (data.respuesta) {
-          case "Ok":
-            titulo = "¡Llamada con éxito!";
-            mensaje = "El botón fue activado correctamente =)";
-            break;
-          case "Sin pin":
-            titulo = "Añade un Pin";
-            mensaje = "Es necesario añadir un pin GPIO";
-            break;
-          case "Pin Incorrecto":
-            titulo = "PIN incorrecto";
-            mensaje = "El pin debe tener un valor entre 2 y 26";
-            break;
-          case "Error":
-            titulo = "¡Cuidado!";
-            mensaje = "¡Es posible que algo saliera mal en tu dispositivo!";
-            break;
-          default:
-            titulo = "Acción sin contemplar";
-            mensaje = "El desarrollador no ha contemplado este escenario. ¡Ten cuidado con tu dispositivo!";
-            break;
-        }
-        const miAlerta = this.alerta.create({
-          title: titulo,
-          message: mensaje,
-          buttons: ["Ok"]
-        });
-        miAlerta.present();
-      },
-      (error) => {
-        loading.dismiss();
-        console.log(error);
-        const miAlerta = this.alerta.create({
-          title: "Error",
-          message: "No se pudo alcanzar el dispositivo.",
-          buttons: ["Ok"]
-        });
-        miAlerta.present();
-      }
-    );
+    this.activeRaspberry.checkConexionRaspberry(this.dispositivo.ip, this.dispositivo.puerto)
+    .subscribe((data) => {
+      loading.dismiss();
+      const miAlerta = this.alerta.create({
+        title: "Conexión Establecida",
+        message: "La raspberry está conectada a su dispositivo.",
+        buttons: ["Ok"]
+      });
+      miAlerta.present();
+    },
+    (error) => {
+      loading.dismiss();
+      console.log(error);
+      const miAlerta = this.alerta.create({
+        title: "Error",
+        message: "No se pudo alcanzar el dispositivo.",
+        buttons: ["Ok"]
+      });
+      miAlerta.present();
+    }
+  );
   }
   private removeBoton() {
     const alert = this.alerta.create({

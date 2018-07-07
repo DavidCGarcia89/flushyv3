@@ -19,11 +19,26 @@
 
 
 <ion-content padding>
-<ion-row>
-  <ion-col width-50 style="text-align: center">
-      <button round ion-button (click)="pulsarBoton()">Pulsar Botón</button>
-  </ion-col>
-</ion-row>
+  <ion-list>
+      <button ion-item (click)="statusRaspberry()" icon-start>
+        <ion-icon name="stats" color="secondary" item-start></ion-icon>
+        <h2>Información de la Raspberry</h2>
+        <p>Temperatura, memoria...</p>
+        <button ion-button clear item-end>Ver</button>
+      </button>
+      <button ion-item (click)="pulsarBoton('Activar Pin')" icon-start>
+          <ion-icon name="stats" color="secondary" item-start></ion-icon>
+          <h2>Activar Pin</h2>
+          <p>Testear si funciona un pin</p>
+          <button ion-button clear item-end>Ver</button>
+        </button>
+      <button ion-item (click)="pulsarBoton('Activar Servo')" icon-start>
+          <ion-icon name="stats" color="secondary" item-start></ion-icon>
+          <h2>Activar Servo</h2>
+          <p>Testear si funciona un servo</p>
+          <button ion-button clear item-end>Ver</button>
+        </button>
+  </ion-list>
 </ion-content>
 
 <ion-footer width-50 style="text-align: center">
