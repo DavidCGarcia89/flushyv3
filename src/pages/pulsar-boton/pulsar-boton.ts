@@ -18,11 +18,12 @@ import * as round from 'round10';
 })
 export class PulsarBotonPage {
   private dispositivo: Dispositivo;
-  private tipoPulsador: string; //Activar Pin
+  private tipoPulsador: string; //Activar Pin, Activar Servo
   private angIni: Number = 4.5;
   private angFin: Number = 10.5;
   private durIni: Number = 5;
   private durFin: Number = 5;
+  private pin: Number = 10;
   constructor(public navCtrl: NavController, public navParams: NavParams, private activeRaspberry: RaspberryProvider, public alerta: AlertController, public loadingCtrl: LoadingController) {
     this.dispositivo = this.navParams.data.dispositivo;
     this.tipoPulsador = this.navParams.data.tipoPulsador;
@@ -40,7 +41,7 @@ export class PulsarBotonPage {
     }, 2000);
     let titulo;
     let mensaje;
-    this.activeRaspberry.checkPinRaspberry(this.dispositivo.ip, this.dispositivo.puerto, this.dispositivo.pin)
+    this.activeRaspberry.checkPinRaspberry(this.dispositivo.ip, this.dispositivo.puerto, this.pin)
     .subscribe(
       (data) => {
         loading.dismiss();
@@ -94,7 +95,7 @@ export class PulsarBotonPage {
     }, 2000);
     let titulo;
     let mensaje;
-    this.activeRaspberry.checkServoRaspberry(this.dispositivo.ip, this.dispositivo.puerto, this.dispositivo.pin, this.durIni, this.durFin, this.angIni, this.angFin)
+    this.activeRaspberry.checkServoRaspberry(this.dispositivo.ip, this.dispositivo.puerto, this.pin, this.durIni, this.durFin, this.angIni, this.angFin)
     .subscribe(
       (data) => {
         loading.dismiss();
@@ -140,12 +141,12 @@ export class PulsarBotonPage {
     );
   }
   private sumarPin() {
-    if (this.dispositivo.pin < 26)
-      this.dispositivo.pin = +this.dispositivo.pin + 1;
+    if (this.pin < 26)
+      this.pin = +this.pin + 1;
   }
   private restarPin() {
-    if (this.dispositivo.pin > 2)
-      this.dispositivo.pin = +this.dispositivo.pin - 1;
+    if (this.pin > 2)
+      this.pin = +this.pin - 1;
   }
   private sumarAngIni() {
     if (this.angIni < 16) {

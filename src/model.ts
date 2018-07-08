@@ -3,9 +3,7 @@ export interface Dispositivo {
     nombre: string;
     ip: string;
     puerto: Number;
-    pin: Number;
     icon: string;
-    tiempoActivo: Number;
   }
 
 export interface RespuestaRaspberry {

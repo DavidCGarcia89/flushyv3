@@ -15,7 +15,7 @@ import { FirebaseDbProvider } from '../../providers/firebasedb/firebasedb';
   templateUrl: 'nuevo-boton.html',
 })
 export class NuevoBotonPage {
-  private dispositivo = {nombre: '', ip: '', pin: '', puerto: '',tiempoActivo: '', icon: ''};
+  private dispositivo = {nombre: '', ip: '', puerto: '',tiempoActivo: '', icon: ''};
 
   constructor(
     public navCtrl: NavController, public navParams: NavParams, private dbFirebase: FirebaseDbProvider, public alerta: AlertController) {

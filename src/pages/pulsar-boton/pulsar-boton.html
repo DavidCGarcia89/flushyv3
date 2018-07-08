@@ -22,7 +22,7 @@
       </ion-row>
       <ion-row>
           <ion-col width-50 style="text-align: center">
-              PIN: {{dispositivo.pin}}
+              PIN: {{pin}}
           </ion-col>
         </ion-row>
       <ion-row justify-content-between>
@@ -33,7 +33,7 @@
         </ion-col>
         <ion-col col-8>
             <ion-item>
-                <ion-range name="David" min="2" max="26" pin="true" [(ngModel)]="dispositivo.pin" color="secondary">
+                <ion-range name="David" min="2" max="26" pin="true" [(ngModel)]="pin" color="secondary">
                   <ion-label range-left>2</ion-label>
                   <ion-label range-right>26</ion-label>
                 </ion-range>
@@ -56,7 +56,7 @@
           </ion-row>
           <ion-row>
               <ion-col width-50 style="text-align: center">
-                  PIN: {{dispositivo.pin}}
+                  PIN: {{pin}}
               </ion-col>
             </ion-row>
           <ion-row justify-content-between>
@@ -67,7 +67,7 @@
             </ion-col>
             <ion-col col-8>
                 <ion-item>
-                    <ion-range min="2" max="26" pin="true" [(ngModel)]="dispositivo.pin" color="secondary">
+                    <ion-range min="2" max="26" pin="true" [(ngModel)]="pin" color="secondary">
                       <ion-label range-left>2</ion-label>
                       <ion-label range-right>26</ion-label>
                     </ion-range>
@@ -92,7 +92,7 @@
             </ion-col>
             <ion-col col-8>
                 <ion-item>
-                    <ion-range min="1" max="10" pin="true" [(ngModel)]="durIni" color="secondary">
+                    <ion-range min="1" max="10" pin="true" [(ngModel)]="durIni" color="dark">
                       <ion-label range-left>1</ion-label>
                       <ion-label range-right>10</ion-label>
                     </ion-range>

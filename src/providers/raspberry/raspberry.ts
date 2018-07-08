@@ -39,12 +39,13 @@ export class RaspberryProvider {
   }
   checkServoRaspberry(ip, puerto, pin, durIni, durFin, angIni, angFin) {
     const es_numero = new RegExp("^[0-9]+$");
+    let duracionTotal = (durIni + durFin)*1000+5000;
     if (es_numero.test(puerto)) {
         const uri = 'http://' + ip + ":" + puerto + "/checkServo?pin=" + pin + "&durIni=" + durIni + "&durFin=" + durFin + "&angIni=" + angIni + "&angFin=" + angFin;
-        return this.http.get<RespuestaRaspberry>(uri).timeout(20000);
+        return this.http.get<RespuestaRaspberry>(uri).timeout(duracionTotal);
     } else {
         const uri = 'http://' + ip +"/checkServo?pin=" + pin + "&durIni=" + durIni + "&durFin=" + durFin + "&angIni=" + angIni + "&angFin=" + angFin;
-        return this.http.get<RespuestaRaspberry>(uri).timeout(20000);
+        return this.http.get<RespuestaRaspberry>(uri).timeout(duracionTotal);
     }
   }
   checkStatusRaspberry(ip, puerto) {
