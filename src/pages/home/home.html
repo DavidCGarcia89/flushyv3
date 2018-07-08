@@ -6,20 +6,28 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding my-component>
-  <ion-list>
-    <button ion-item *ngFor="let dispositivo of listaDispositivos" (click)="detallesBoton(dispositivo)">
-        <ion-icon *ngIf="dispositivo.icon == 'custom-raspberry'" [name]="dispositivo.icon" color="raspberry"></ion-icon>
-        <ion-icon *ngIf="dispositivo.icon == 'custom-tv'" [name]="dispositivo.icon" color="dark"></ion-icon>
-        <ion-icon *ngIf="dispositivo.icon == 'custom-door'" [name]="dispositivo.icon" color="door"></ion-icon>
-        <ion-icon *ngIf="dispositivo.icon == 'sunny'" [name]="dispositivo.icon" color="sun"></ion-icon>
-        <ion-icon *ngIf="dispositivo.icon == 'alarm'" [name]="dispositivo.icon" color="primary"></ion-icon>
-        <ion-icon *ngIf="dispositivo.icon == 'call'" [name]="dispositivo.icon" color="call"></ion-icon>
-        <ion-icon *ngIf="dispositivo.icon == 'musical-notes'" [name]="dispositivo.icon" color="dark"></ion-icon>
-        <ion-icon *ngIf="dispositivo.icon == 'custom-wc'" [name]="dispositivo.icon" color="primary"></ion-icon>
-      {{ dispositivo.nombre }}
-    </button>
-  </ion-list>
+<ion-content class="homeBg">
+  <ion-grid>
+    <ion-row justify-content-center>
+      <ion-col *ngFor="let dispositivo of listaDispositivos">
+          <ion-card>
+          <button ion-item (click)="detallesBoton(dispositivo)">
+              <ion-card-content style="text-align: center">
+                  <ion-icon *ngIf="dispositivo.icon == 'custom-raspberry'" [name]="dispositivo.icon" color="raspberry"></ion-icon>
+                  <ion-icon *ngIf="dispositivo.icon == 'custom-tv'" [name]="dispositivo.icon" color="dark"></ion-icon>
+                  <ion-icon *ngIf="dispositivo.icon == 'custom-door'" [name]="dispositivo.icon" color="door"></ion-icon>
+                  <ion-icon *ngIf="dispositivo.icon == 'sunny'" [name]="dispositivo.icon" color="sun"></ion-icon>
+                  <ion-icon *ngIf="dispositivo.icon == 'alarm'" [name]="dispositivo.icon" color="primary"></ion-icon>
+                  <ion-icon *ngIf="dispositivo.icon == 'call'" [name]="dispositivo.icon" color="call"></ion-icon>
+                  <ion-icon *ngIf="dispositivo.icon == 'musical-notes'" [name]="dispositivo.icon" color="dark"></ion-icon>
+                  <ion-icon *ngIf="dispositivo.icon == 'custom-wc'" [name]="dispositivo.icon" color="primary"></ion-icon>
+                  {{ dispositivo.nombre }}
+              </ion-card-content>
+          </button>
+          </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
   
 <ion-row>
   <ion-col style="text-align: center">
