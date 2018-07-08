@@ -13,41 +13,35 @@
   </ion-header>
   
   
-  <ion-content padding *ngIf="tipoPulsador == 'Activar Pin'"> 
-    <ion-grid no-padding>
+  <ion-content padding class="homeBg" *ngIf="tipoPulsador == 'Activar Pin'"> 
+    <ion-grid>
       <ion-row>
         <ion-col width-50 style="text-align: center">
             <button round ion-button (click)="activarPin()">TESTEAR PIN</button>
         </ion-col>
       </ion-row>
-      <ion-row>
+      <ion-row padding>
           <ion-col width-50 style="text-align: center">
               PIN: {{pin}}
           </ion-col>
         </ion-row>
-      <ion-row justify-content-between>
-        <ion-col col-2 style="text-align: center">
-            <button ion-button small round icon-only color=light (click)="restarPin()">
-              <ion-icon color=dark name="arrow-dropleft"></ion-icon>
-            </button>
-        </ion-col>
-        <ion-col col-8>
+      <ion-row>
+        <ion-col>
             <ion-item>
-                <ion-range name="David" min="2" max="26" pin="true" [(ngModel)]="pin" color="secondary">
-                  <ion-label range-left>2</ion-label>
-                  <ion-label range-right>26</ion-label>
+                <ion-range round name="David" min="2" max="26" pin="true" [(ngModel)]="pin" color="secondary">
+                      <button range-left ion-button small round icon-only color=light (click)="restarPin()">
+                          <ion-icon color="dark" name="arrow-dropleft"></ion-icon>
+                        </button>
+                      <button range-right ion-button small round icon-only color=light (click)="sumarPin()">
+                      <ion-icon color="dark" name="arrow-dropright"></ion-icon>
+                    </button>
                 </ion-range>
               </ion-item>
-        </ion-col>
-        <ion-col col-2 style="text-align: center">
-            <button ion-button small round icon-only color=light (click)="sumarPin()">
-              <ion-icon color=dark name="arrow-dropright"></ion-icon>
-            </button>
         </ion-col>
       </ion-row>
     </ion-grid>
   </ion-content> 
-    <ion-content padding *ngIf="tipoPulsador == 'Activar Servo'"> 
+    <ion-content padding class="homeBg" *ngIf="tipoPulsador == 'Activar Servo'"> 
         <ion-grid no-padding>
           <ion-row>
             <ion-col width-50 style="text-align: center">

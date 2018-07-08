@@ -18,27 +18,44 @@
 </ion-header>
 
 
-<ion-content padding>
-  <ion-list>
-      <button ion-item (click)="statusRaspberry()" icon-start>
-        <ion-icon name="stats" color="secondary" item-start></ion-icon>
-        <h2>Información</h2>
-        <p>Temperatura, memoria...</p>
-        <button ion-button clear item-end>Ver</button>
-      </button>
-      <button ion-item (click)="pulsarBoton('Activar Pin')" icon-start>
-          <ion-icon name="flash" color="sun" item-start></ion-icon>
-          <h2>Activar Pin</h2>
-          <p>Testear si funciona un pin</p>
-          <button ion-button clear item-end>Ver</button>
-        </button>
-      <button ion-item (click)="pulsarBoton('Activar Servo')" icon-start>
-          <ion-icon name="cog" color="dark" item-start></ion-icon>
-          <h2>Activar Servo</h2>
-          <p>Testear si funciona un servo</p>
-          <button ion-button clear item-end>Ver</button>
-        </button>
-  </ion-list>
+<ion-content padding class="homeBg">
+  <ion-grid>
+    <ion-row justify-content-center>
+      <ion-col>
+          <ion-card>
+          <button ion-item (click)="pulsarBoton('Activar Pin')" icon-start>
+              <ion-card-content style="text-align: center">
+              <ion-icon name="flash" color="sun" item-start></ion-icon>
+              <h2>Activar Pin</h2>
+              </ion-card-content>
+            </button>
+          </ion-card>
+      </ion-col>
+      
+      <ion-col>
+        <ion-card>
+          <button ion-item (click)="pulsarBoton('Activar Servo')" icon-start>
+            <ion-card-content style="text-align: center">
+              <ion-icon name="cog" color="dark" item-start></ion-icon>
+              <h2>Activar Servo</h2>
+            </ion-card-content>
+          </button>
+        </ion-card>
+      </ion-col>
+
+     
+      <ion-col>
+        <ion-card>
+          <button ion-item (click)="statusRaspberry()" icon-start>
+            <ion-card-content style="text-align: center">
+              <ion-icon name="stats" color="secondary" item-start></ion-icon>
+              <h2>Información</h2>
+            </ion-card-content>
+          </button>   
+        </ion-card>  
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
 
 <ion-footer width-50 style="text-align: center">
