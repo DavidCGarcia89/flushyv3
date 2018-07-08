@@ -21,22 +21,22 @@
         </ion-col>
       </ion-row>
       <ion-row padding>
-          <ion-col width-50 style="text-align: center">
-              PIN: {{pin}}
-          </ion-col>
-        </ion-row>
+        <ion-col width-50 style="text-align: center">
+            PIN: {{pin}}
+        </ion-col>
+      </ion-row>
       <ion-row>
         <ion-col>
-            <ion-item>
-                <ion-range round name="David" min="2" max="26" pin="true" [(ngModel)]="pin" color="secondary">
-                      <button range-left ion-button small round icon-only color=light (click)="restarPin()">
-                          <ion-icon color="dark" name="arrow-dropleft"></ion-icon>
-                        </button>
-                      <button range-right ion-button small round icon-only color=light (click)="sumarPin()">
-                      <ion-icon color="dark" name="arrow-dropright"></ion-icon>
-                    </button>
-                </ion-range>
-              </ion-item>
+          <ion-item>
+            <ion-range round name="David" min="2" max="26" pin="true" [(ngModel)]="pin" color="secondary">
+              <button range-left ion-button small round icon-only color=light (click)="restarPin()">
+                  <ion-icon color="dark" name="arrow-dropleft"></ion-icon>
+              </button>
+              <button range-right ion-button small round icon-only color=light (click)="sumarPin()">
+                <ion-icon color="dark" name="arrow-dropright"></ion-icon>
+              </button>
+            </ion-range>
+          </ion-item>
         </ion-col>
       </ion-row>
     </ion-grid>
@@ -45,135 +45,105 @@
         <ion-grid no-padding>
           <ion-row>
             <ion-col width-50 style="text-align: center">
-                <button round ion-button (click)="activarServo()">TESTEAR SERVO</button>
+              <button round ion-button (click)="activarServo()">TESTEAR SERVO</button>
+            </ion-col>
+          </ion-row>
+          <ion-row padding>
+            <ion-col width-50 style="text-align: center">
+                PIN: {{pin}}
             </ion-col>
           </ion-row>
           <ion-row>
-              <ion-col width-50 style="text-align: center">
-                  PIN: {{pin}}
-              </ion-col>
-            </ion-row>
-          <ion-row justify-content-between>
-            <ion-col col-2 style="text-align: center">
-                <button ion-button small round icon-only color=light (click)="restarPin()">
-                  <ion-icon color=dark name="arrow-dropleft"></ion-icon>
-                </button>
-            </ion-col>
-            <ion-col col-8>
-                <ion-item>
-                    <ion-range min="2" max="26" pin="true" [(ngModel)]="pin" color="secondary">
-                      <ion-label range-left>2</ion-label>
-                      <ion-label range-right>26</ion-label>
-                    </ion-range>
-                  </ion-item>
-            </ion-col>
-            <ion-col col-2 style="text-align: center">
-                <button ion-button small round icon-only color=light (click)="sumarPin()">
-                  <ion-icon color=dark name="arrow-dropright"></ion-icon>
-                </button>
+            <ion-col>
+              <ion-item>
+                <ion-range round name="David" min="2" max="26" pin="true" [(ngModel)]="pin" color="secondary">
+                  <button range-left ion-button small round icon-only color=light (click)="restarPin()">
+                    <ion-icon color="dark" name="arrow-dropleft"></ion-icon>
+                  </button>
+                  <button range-right ion-button small round icon-only color=light (click)="sumarPin()">
+                    <ion-icon color="dark" name="arrow-dropright"></ion-icon>
+                  </button>
+                </ion-range>
+              </ion-item>
             </ion-col>
           </ion-row>
-          <ion-row>
+          <ion-row padding>
               <ion-col width-50 style="text-align: center">
                   Duración Giro Inicial: {{durIni}} seg
               </ion-col>
             </ion-row>
-          <ion-row justify-content-between>
-            <ion-col col-2 style="text-align: center">
-                <button ion-button small round icon-only color=light (click)="restarDurIni()">
-                  <ion-icon color=dark name="arrow-dropleft"></ion-icon>
-                </button>
-            </ion-col>
-            <ion-col col-8>
-                <ion-item>
-                    <ion-range min="1" max="10" pin="true" [(ngModel)]="durIni" color="dark">
-                      <ion-label range-left>1</ion-label>
-                      <ion-label range-right>10</ion-label>
-                    </ion-range>
-                  </ion-item>
-            </ion-col>
-            <ion-col col-2 style="text-align: center">
-                <button ion-button small round icon-only color=light (click)="sumarDurIni()">
-                  <ion-icon color=dark name="arrow-dropright"></ion-icon>
-                </button>
+          <ion-row>
+            <ion-col>
+              <ion-item>
+                <ion-range min="1" max="10" pin="true" [(ngModel)]="durIni" color="dark">
+                  <button range-left ion-button small round icon-only color=light (click)="restarDurIni()">
+                    <ion-icon color=dark name="arrow-dropleft"></ion-icon>
+                  </button>
+                  <button range-right ion-button small round icon-only color=light (click)="sumarDurIni()">
+                    <ion-icon color=dark name="arrow-dropright"></ion-icon>
+                  </button>
+                </ion-range>
+              </ion-item>
             </ion-col>
           </ion-row>
 
+          <ion-row padding>
+            <ion-col width-50 style="text-align: center">
+                Duración Giro Final: {{durFin}} seg
+            </ion-col>
+          </ion-row>
           <ion-row>
-              <ion-col width-50 style="text-align: center">
-                  Duración Giro Final: {{durFin}} seg
-              </ion-col>
-            </ion-row>
-          <ion-row justify-content-between>
-            <ion-col col-2 style="text-align: center">
-                <button ion-button small round icon-only color=light (click)="restarDurFin()">
-                  <ion-icon color=dark name="arrow-dropleft"></ion-icon>
-                </button>
-            </ion-col>
-            <ion-col col-8>
-                <ion-item>
-                    <ion-range min="1" max="10" pin="true" [(ngModel)]="durFin" color="dark">
-                      <ion-label range-left>1</ion-label>
-                      <ion-label range-right>10</ion-label>
-                    </ion-range>
-                  </ion-item>
-            </ion-col>
-            <ion-col col-2 style="text-align: center">
-                <button ion-button small round icon-only color=light (click)="sumarDurFin()">
-                  <ion-icon color=dark name="arrow-dropright"></ion-icon>
-                </button>
+            <ion-col>
+              <ion-item>
+                <ion-range min="1" max="10" pin="true" [(ngModel)]="durFin" color="dark">
+                  <button range-left ion-button small round icon-only color=light (click)="restarDurFin()">
+                    <ion-icon color=dark name="arrow-dropleft"></ion-icon>
+                  </button>
+                  <button range-right ion-button small round icon-only color=light (click)="sumarDurFin()">
+                    <ion-icon color=dark name="arrow-dropright"></ion-icon>
+                  </button>
+                </ion-range>
+              </ion-item>
             </ion-col>
           </ion-row>
 
+          <ion-row padding>
+            <ion-col width-50 style="text-align: center">
+                Ángulo Giro Inicial: {{angIni}}
+            </ion-col>
+          </ion-row>
           <ion-row>
-              <ion-col width-50 style="text-align: center">
-                  Ángulo Giro Inicial: {{angIni}}
-              </ion-col>
-            </ion-row>
-          <ion-row justify-content-between>
-            <ion-col col-2 style="text-align: center">
-                <button ion-button small round icon-only color=light (click)="restarAngIni()">
-                  <ion-icon color=dark name="arrow-dropleft"></ion-icon>
-                </button>
-            </ion-col>
-            <ion-col col-8>
-                <ion-item>
-                    <ion-range min="0" max="15" pin="true" [(ngModel)]="angIni">
-                      <ion-label range-left>0</ion-label>
-                      <ion-label range-right>15</ion-label>
-                    </ion-range>
-                  </ion-item>
-            </ion-col>
-            <ion-col col-2 style="text-align: center">
-                <button ion-button small round icon-only color=light (click)="sumarAngIni()">
-                  <ion-icon color=dark name="arrow-dropright"></ion-icon>
-                </button>
+            <ion-col>
+              <ion-item>
+                <ion-range min="0" max="15" pin="true" [(ngModel)]="angIni">
+                  <button range-left ion-button small round icon-only color=light (click)="restarAngIni()">
+                    <ion-icon color=dark name="arrow-dropleft"></ion-icon>
+                  </button>
+                  <button range-right ion-button small round icon-only color=light (click)="sumarAngIni()">
+                    <ion-icon color=dark name="arrow-dropright"></ion-icon>
+                  </button>
+                </ion-range>
+              </ion-item>
             </ion-col>
           </ion-row>
 
+          <ion-row padding>
+            <ion-col width-50 style="text-align: center">
+                Ángulo Giro Final: {{angFin}}
+            </ion-col>
+          </ion-row>
           <ion-row>
-              <ion-col width-50 style="text-align: center">
-                  Ángulo Giro Final: {{angFin}}
-              </ion-col>
-            </ion-row>
-          <ion-row justify-content-between>
-            <ion-col col-2 style="text-align: center">
-                <button ion-button small round icon-only color=light (click)="restarAngFin()">
-                  <ion-icon color=dark name="arrow-dropleft"></ion-icon>
-                </button>
-            </ion-col>
-            <ion-col col-8>
-                <ion-item>
-                    <ion-range min="0" max="15" pin="true" [(ngModel)]="angFin">
-                      <ion-label range-left>0</ion-label>
-                      <ion-label range-right>15</ion-label>
-                    </ion-range>
-                  </ion-item>
-            </ion-col>
-            <ion-col col-2 style="text-align: center">
-                <button ion-button small round icon-only color=light (click)="sumarAngFin()">
-                  <ion-icon color=dark name="arrow-dropright"></ion-icon>
-                </button>
+            <ion-col>
+              <ion-item>
+                <ion-range min="0" max="15" pin="true" [(ngModel)]="angFin">
+                  <button range-left ion-button small round icon-only color=light (click)="restarAngFin()">
+                    <ion-icon color=dark name="arrow-dropleft"></ion-icon>
+                  </button>
+                  <button range-right ion-button small round icon-only color=light (click)="sumarAngFin()">
+                    <ion-icon color=dark name="arrow-dropright"></ion-icon>
+                  </button>
+                </ion-range>
+              </ion-item>
             </ion-col>
           </ion-row>
         
