@@ -21,12 +21,8 @@ export class PulsarBotonPage {
   private tipoPulsador: string; //Activar Pin
   private angIni: Number = 4.5;
   private angFin: Number = 10.5;
-  private angIniM: Number = 45;
-  private angFinM: Number = 105;
   private durIni: Number = 5;
   private durFin: Number = 5;
-  private durIniM: Number = 5000;
-  private durFinM: Number = 5000;
   constructor(public navCtrl: NavController, public navParams: NavParams, private activeRaspberry: RaspberryProvider, public alerta: AlertController, public loadingCtrl: LoadingController) {
     this.dispositivo = this.navParams.data.dispositivo;
     this.tipoPulsador = this.navParams.data.tipoPulsador;
@@ -98,7 +94,7 @@ export class PulsarBotonPage {
     }, 2000);
     let titulo;
     let mensaje;
-    this.activeRaspberry.checkServoRaspberry(this.dispositivo.ip, this.dispositivo.puerto, this.dispositivo.pin, this.durIniM, this.durFinM, this.angIni, this.angFin)
+    this.activeRaspberry.checkServoRaspberry(this.dispositivo.ip, this.dispositivo.puerto, this.dispositivo.pin, this.durIni, this.durFin, this.angIni, this.angFin)
     .subscribe(
       (data) => {
         loading.dismiss();
@@ -175,27 +171,23 @@ export class PulsarBotonPage {
   }
   private sumarDurIni() {
     if (this.durIni < 10) {
-      this.durIni = +this.durIni + 1;
-      this.durIniM = +this.durIniM + 1000;
+      this.durIni = round.round10(+this.durIni + 0.1, -1);
     }
     
   }
   private restarDurIni() {
     if (this.durIni > 1) {
-      this.durIni = +this.durIni - 1;
-      this.durIniM = +this.durIniM - 1000;
+      this.durIni = round.round10(+this.durIni - 0.1, -1);
     }
   }
   private sumarDurFin() {
     if (this.durFin < 10) {
-      this.durFin = +this.durFin + 1;
-      this.durFinM = +this.durFinM + 1000;
+      this.durFin = round.round10(+this.durFin + 0.1, -1);
     }
   }
   private restarDurFin() {
     if (this.durFin > 1) {
-      this.durFin = +this.durFin - 1;
-      this.durFinM = +this.durFinM - 1000;
+      this.durFin = round.round10(+this.durFin - 0.1, -1);
     }
   }
 }
