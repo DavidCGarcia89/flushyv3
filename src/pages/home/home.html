@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar color="navBar">
     <ion-title>
       DashBoard
     </ion-title>
@@ -8,7 +8,7 @@
 
 <ion-content padding my-component>
   <ion-list>
-    <button  ion-item *ngFor="let dispositivo of listaDispositivos" (click)="detallesBoton(dispositivo)">
+    <button ion-item *ngFor="let dispositivo of listaDispositivos" (click)="detallesBoton(dispositivo)">
         <ion-icon *ngIf="dispositivo.icon == 'custom-raspberry'" [name]="dispositivo.icon" color="raspberry"></ion-icon>
         <ion-icon *ngIf="dispositivo.icon == 'custom-tv'" [name]="dispositivo.icon" color="dark"></ion-icon>
         <ion-icon *ngIf="dispositivo.icon == 'custom-door'" [name]="dispositivo.icon" color="door"></ion-icon>
