@@ -28,6 +28,7 @@ export class StatusBotonPage {
   constructor(public navCtrl: NavController, public navParams: NavParams, private raspberry: RaspberryProvider) {
     this.dispositivo = navParams.data.dispositivo;
     this.status = navParams.data.statusR;
+    this.status.uptime = this.status.uptime.split("up ")[1];
   }
   ionViewDidLoad() {
     console.log('ionViewDidLoad StatusBotonPage');

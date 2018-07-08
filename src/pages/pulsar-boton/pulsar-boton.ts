@@ -37,8 +37,6 @@ export class PulsarBotonPage {
       content: 'Please wait...'
     });
     loading.present();
-    setTimeout(() => {
-    }, 2000);
     let titulo;
     let mensaje;
     this.activeRaspberry.checkPinRaspberry(this.dispositivo.ip, this.dispositivo.puerto, this.pin)

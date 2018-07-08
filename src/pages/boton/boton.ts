@@ -38,12 +38,13 @@ export class BotonPage {
       loading.dismiss();
       this.navCtrl.push(StatusBotonPage, {dispositivo: this.dispositivo, statusR: status});
     },(error) => {
+      loading.dismiss();
       const miAlerta = this.alerta.create({
         title: "Error",
         message: "No se pudo alcanzar el dispositivo.",
         buttons: ["Ok"]
       });
-      miAlerta.dismiss();
+      miAlerta.present();
     });
   }
   private pulsarBoton(tipo) {
